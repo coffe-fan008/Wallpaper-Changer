@@ -1,5 +1,5 @@
 ### Wallpaper-Changer
-little proyect to learn more of filesystem lib for C++ and also dont write awww img "file" &amp;&amp; wal -n -i "file" every time i want to change wallpaper also you can see how this works on the wall.mp4 video
+little project to learn more of filesystem lib for C++ and also dont write awww img "file" &amp;&amp; wal -n -i "file" every time i want to change wallpaper also you can see how this works on the wall.mp4 video
 
 ### Features
 * **Automated Paths**: Automatically detects your Linux user path.
