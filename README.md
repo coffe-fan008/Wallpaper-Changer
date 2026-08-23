@@ -35,7 +35,7 @@ then it creates a new variable called something that is a variable that have the
 ### Sorry :(
 Sorry for the video quality; i didn't get obs work on Arch Linux, so i take the video on my phone.
 
-also the line to get the user name for the directory was made with google ai so i feel bad for use ai so i study how the function works.
+also the line to get the user name for the directory was made with google ai so i feel bad for use ai to do code (vibe coding) so i study how the function works.
 
 (This text explaning const char* was made by u/Avereniect from Reddit ). 
 
