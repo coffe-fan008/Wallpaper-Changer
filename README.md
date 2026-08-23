@@ -54,5 +54,5 @@ getenv is a function from cstdlib
 this works by searching enviroments variables from the OS that allows programs to identify importants directories (Like PATH, HOME or TMP) also it can be used to identify some important things (like user info and some other things like configuration settings)
 
 ### other
-the song that i have on pause on the video is * **Duele el amor** from Aleks Syntek and Ana Torroja
+the song that i have on pause on the video is **Duele el amor** from Aleks Syntek and Ana Torroja
 
