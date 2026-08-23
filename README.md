@@ -1,8 +1,5 @@
-<video width="100%" controlsList="nodownload">
- <source src="wall.mp4" type="video/mp4" />
-</video>
 ### Wallpaper-Changer
-little proyect to learn more of filesystem lib for C++ and also dont write awww img "file" &amp;&amp; wal -n -i "file" every time i want to change wallpaper
+little proyect to learn more of filesystem lib for C++ and also dont write awww img "file" &amp;&amp; wal -n -i "file" every time i want to change wallpaper you can see how this works on the wall.mp4 video
 
 ### Features
 * **Automated Paths**: Automatically detects your Linux user path.
