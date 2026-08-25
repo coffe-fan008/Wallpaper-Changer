@@ -28,7 +28,7 @@ sudo mv wallpaper /usr/local/bin/
 sudo mv wallpaper /usr/bin/
 ```
 
-### How it Works
+### How it Works (outdated)
 this program works by using awww and pywal to change wallpaper and colors what this program do is create a non modifiable string variable to get the user name by doing a const char* user = getenv ("USER") 
 then it creates a new variable called something that is a variable that have the wallpapers directory and also it create a modifiable string called wall to save the file name then i clean the terminal by using a cout to send a command to clean the terminal ("\033[2J\033[1H") after that it print with cout a ascii art that says Wallpaper after that i use the directory_entry example but i modded to see if the dir /home/USER/Pictures/Wallpapers/ exist then it prints the dir and if the dir doesn't exist it print please create the folder and put your wallpapers there but if you alr have it, it will show the names of the files and then it will print put your file and extension and then it do a getline(cin, wall); to get and save the file name in the wall variable so after that the program send a command with system((string("awww img --transition-type=random /home/") + string(user) + ("/Pictures/Wallpapers/") + wall.c_str()).c_str()); to change the wallpaper to the selected one and do a random transition then it sends another command to change the colors by doing a   system((std::string("wal -n -i /home/") + string(user) + ("/Pictures/Wallpapers/") + wall.c_str()).c_str()); to change the colors by using the wallpaper as color palette and after doing the two commands it send another just to clean the terminal ("\033[2J\033[1H"); and then it prints a saitama ascii art that says "ok"
 
