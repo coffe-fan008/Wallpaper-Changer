@@ -2,52 +2,65 @@
 #include <string>
 #include <filesystem>
 #include <cstdlib>
+#include <fstream>
 using namespace std; 
 
 int main () {
-  //create a variable to save the use name and one variable to the wallpapers folder and other raw variable to use with cin to save the wallpaper name
+  //create a variable to save the user name and two variables for the folder where the file that stores the directory will be 
   const char* user = getenv("USER");
-  string something = "/home/" + string(user) + "/Pictures/Wallpapers";
+  string dir = "/home/" + string(user) + "/.config/wall-dir";
+  string fname = "/home/" + string(user) + "/.config/wall-dir/dir.txt";
+
+  //creates raw variables rdir for read dir, wdir for wallpapers directory and wall for the wallpaper name
+  string rdir;
+  string wdir;
   string wall;
 
-  //clear terminal and print wallpaper on ascii art
+  //clear terminal and print "WALLPAPER" on ascii art in red color and then change the color to white for the other things
   cout<<("\033[2J\033[1H");
-      cout<<R"(█▀▀▀█ ▀▒ ▀█  ▄▀▀▀▀▄  █▀▀▓     █▀▀▓     █▀▀▀▀▀▄   ▄▀▀▀▀▄  █▀▀▀▀▀▄   ▄▀▀▀▀▀█ █▀▀▀▀▀▄ 
+      cout<<"\x1b[31m"<<R"(█▀▀▀█ ▀▒ ▀█  ▄▀▀▀▀▄  █▀▀▓     █▀▀▓     █▀▀▀▀▀▄   ▄▀▀▀▀▄  █▀▀▀▀▀▄   ▄▀▀▀▀▀█ █▀▀▀▀▀▄ 
 █   ▓  ░  ░ █      █ █  ░     █  ░     █      █ █      █ █      █ █      ▓ █      █
 █   ▒  ▒  ▒ █  █▀  █ █  █     █  █     █  █▀  █ █  █▀  █ █  █▀  █ █  █▀▀▀▀ █  █▀  █
 ▓   ░  ▓  ▓ ▓  ▀▀  ▓ ▓  █▄▀▀█ ▓  █▄▀▀█ ▓  ▀▀ ▄▀ ▓  ▀▀  ▓ ▓  ▀▀ ▄▀ ▓  █▄█▄▄ ▓  ▀▀ ▀▄
 ▒         ▒ ▒  █   ▒ ▒  ▀▀  ▒ ▒  ▀▀  ▒ ▒  █▀▀   ▒  █   ▒ ▒  █▀▀   ▒      ▒ ▒  █   ▒
- ▀▄▄▄▀▄▄▄▀  ░▄▄█ ▄▄░  ▀▄▄▄▄▀   ▀▄▄▄▄▀  ░▄▄█     ░▄▄█ ▄▄░ ░▄▄█      ▀▄▄▄▄▄█ ░▄▄█ ▄▄█)"<<'\n';
-  
-  //check if the dir /home/user/Pictures/Wallpapers/ exist
+ ▀▄▄▄▀▄▄▄▀  ░▄▄█ ▄▄░  ▀▄▄▄▄▀   ▀▄▄▄▄▀  ░▄▄█     ░▄▄█ ▄▄░ ░▄▄█      ▀▄▄▄▄▄█ ░▄▄█ ▄▄█)"<<"\x1B[37m"<<'\n';
+ 
+  //check if the directory /home/user/Pictures/Wallpapers/ exist
     {
     for (auto const str:
     {
-        "/home/" + string(user) + "/Pictures/Wallpapers/",
+        string(dir),
     })
     {
-        std::filesystem::directory_entry entr7{str};
+        filesystem::directory_entry entr7{str};
 
-            if (entr7.exists() ? filesystem::exists(entr7) : filesystem::exists(entr7))
-        std::cout << "Directory " << entr7 << '\n' << '\n';
+            if (entr7.exists() ? filesystem::exists(entr7) : filesystem::exists(entr7)) {
+              fstream(fname, ios::in) >> rdir;
+        cout << "Directory " << rdir << '\n' << '\n';
+            }
     else {
-        std::cout << "doesn't exist; please create it and place your wallpapers there\n";
-        return 1;
+      cout<<"Please enter the wallpapers directory: ";
+      getline(cin, wdir);
+      filesystem::create_directory(dir);
+      fstream(fname, ios::out | ios::trunc) << string(wdir);
+      cout<<"The file storing the directory is located at ~/.config/wall-dir/dir.txt."<<'\n';
+      cout<<"now you need to use this program again"<<'\n';
+        return 0;
      }
     }
 }
 
-//check files and sub files on the folder and print the names
-  for (const auto & entry : filesystem::recursive_directory_iterator(something))
+//check files and sub files on the folder and print the names. (other) the subfiles appears like a file in the principal folder and the sub folder appear as a file
+  for (const auto & entry : filesystem::recursive_directory_iterator(rdir))
   cout << entry.path().filename()<<'\n';
 
-  //get wallpaper name 
+  //get wallpaper name
   cout<<'\n'<<"Put your Image name and extension"<<'\n'<<"> ";
   getline(cin, wall);
 
   //send command to change wallpaper, color palette and clear terminal then in shows the saitma ascii art
-  system((string("awww img --transition-type=random /home/") + string(user) + ("/Pictures/Wallpapers/") + wall.c_str()).c_str());
-  system((std::string("wal -n -i /home/") + string(user) + ("/Pictures/Wallpapers/") + wall.c_str()).c_str());
+  system((string("awww img --transition-type=random ") + rdir.c_str() + wall.c_str()).c_str());
+  system((string("wal -n -i ") + rdir.c_str() + wall.c_str()).c_str());
   cout<<("\033[2J\033[1H");
   cout << R"(⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⡋⠉⠙⠒⢤⡀⠀⠀⠀⠀⠀⢠⠖⠉⠉⠙⠢⡄⠀
 ⠀⠀⠀⠀⠀⠀⢀⣼⣟⡒⠒⠀⠀⠀⠀⠀⠙⣆⠀⠀⠀⢠⠃⠀⠀⠀⠀⠀⠹⡄
