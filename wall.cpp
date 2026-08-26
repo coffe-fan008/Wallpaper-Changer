@@ -6,7 +6,7 @@
 using namespace std; 
 
 int main () {
-  //create a variable to save the user name and two variables for the folder where the file that stores the directory will be 
+  //create a variable to save the user name and two variables for the folder where the file that stores the directory will be
   const char* user = getenv("USER");
   string dir = "/home/" + string(user) + "/.config/wall-dir";
   string fname = "/home/" + string(user) + "/.config/wall-dir/dir.txt";
@@ -25,7 +25,7 @@ int main () {
 ▒         ▒ ▒  █   ▒ ▒  ▀▀  ▒ ▒  ▀▀  ▒ ▒  █▀▀   ▒  █   ▒ ▒  █▀▀   ▒      ▒ ▒  █   ▒
  ▀▄▄▄▀▄▄▄▀  ░▄▄█ ▄▄░  ▀▄▄▄▄▀   ▀▄▄▄▄▀  ░▄▄█     ░▄▄█ ▄▄░ ░▄▄█      ▀▄▄▄▄▄█ ░▄▄█ ▄▄█)"<<"\x1B[37m"<<'\n';
  
-  //check if the directory /home/user/Pictures/Wallpapers/ exist
+  //check if the file dir.txt exist on /home/USER/.config/wall-dir/ 
     {
     for (auto const str:
     {
@@ -59,8 +59,8 @@ int main () {
   getline(cin, wall);
 
   //send command to change wallpaper, color palette and clear terminal then in shows the saitma ascii art
-  system((string("awww img --transition-type=random ") + rdir.c_str() + wall.c_str()).c_str());
-  system((string("wal -n -i ") + rdir.c_str() + wall.c_str()).c_str());
+  system((string("awww img --transition-type=random ") + rdir.c_str() + "/" + wall.c_str()).c_str());
+  system((string("wal -n -i ") + rdir.c_str() + "/" + wall.c_str()).c_str());
   cout<<("\033[2J\033[1H");
   cout << R"(⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⡋⠉⠙⠒⢤⡀⠀⠀⠀⠀⠀⢠⠖⠉⠉⠙⠢⡄⠀
 ⠀⠀⠀⠀⠀⠀⢀⣼⣟⡒⠒⠀⠀⠀⠀⠀⠙⣆⠀⠀⠀⢠⠃⠀⠀⠀⠀⠀⠹⡄
