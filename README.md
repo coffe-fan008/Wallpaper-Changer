@@ -14,7 +14,7 @@ little project to learn more of filesystem lib for C++ and also dont write awww 
 * **base-devel (gcc - g++)**: sudo pacman -S base-devel
 * **pywal**: yay -S pywal or paru -S pywal
 * **awww**: yay -S awww or paru -S awww
-* **Clone repo**: https://github.com/coffe-fan008/Wallpaper-Changer.git
+* **Clone repo**: git clone https://github.com/coffe-fan008/Wallpaper-Changer.git
 
 ### compile and install
 * **Compile**
