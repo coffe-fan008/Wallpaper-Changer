@@ -21,11 +21,11 @@ little project to learn more of filesystem lib for C++ and also dont write awww 
 ```bash
 cd Wallpaper-Changer && g++ wall.cpp -o wallpaper
 ```
-* **install in your user**: after compile it you need to move it to /usr/local/bin/
+* **install in your user**: now you have to move it to /usr/local/bin/
 ```bash
 sudo mv wallpaper /usr/local/bin/
 ```
-* **general system installation** after compile it you need to move it to /bin/
+* **general system installation** move the program to /bin/
 ```bash
 sudo mv wallpaper /usr/bin/
 ```
