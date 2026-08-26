@@ -1,7 +1,7 @@
 <img width="1919" height="1079" alt="2026-08-26_00-22_1" src="https://github.com/user-attachments/assets/8ad565ab-35d9-49bb-b560-a434111c609f" />
 
 ### Wallpaper-Changer
-little project to learn more of filesystem lib for C++ and also dont write awww img --transition-type=random "file" &amp;&amp; wal -n -i "file" every time i want to change wallpaper also you can see how this works on the wall.mp4 video
+little project to learn more of filesystem lib for C++ and also dont write awww img --transition-type=random "file" &amp;&amp; wal -n -i "file" every time i want to change wallpaper also you can see how this works on the wall.mp4 video (outdated but works)
 
 ### Features
 * **Automated Paths**: Automatically detects your Linux user path.
